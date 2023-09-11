@@ -2,11 +2,13 @@ import AuthButton from "@/components/AuthButton";
 import { InitialModal } from "@/components/modals/InitialModal";
 import { currentProfile } from "@/lib/currentProfile";
 import { db } from "@/lib/dbClient";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 const SetupPage = async () => {
     const profile = await currentProfile();
-
+    if (!profile) {
+        return <AuthButton />
+    }
     const server = await db.server.findFirst({
         where: {
             members: {
@@ -20,10 +22,6 @@ const SetupPage = async () => {
 
     if (server) {
         return redirect(`/servers/${server.id}`);
-    }
-
-    if (!profile) {
-        return <AuthButton />
     }
 
     return (

@@ -21,7 +21,16 @@ const AuthButton: React.FC<AuthButtonProps> = ({ className }) => {
 
     const handleLogout = async () => {
         const { error } = await supabaseClient.auth.signOut();
+        router.push("/");
     };
+
+    const handleLogin = async () => {
+        authModal.onOpen();
+    }
+
+    useEffect(() => {
+        router.refresh();
+    }, [router, user]);
 
     return (
         <div className={twMerge(`h-fit p-6`, className)}>
@@ -40,7 +49,7 @@ const AuthButton: React.FC<AuthButtonProps> = ({ className }) => {
 
                         <div>
                             <button
-                                onClick={authModal.onOpen}
+                                onClick={handleLogin}
                                 className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-md transition-colors duration-300"
                             >
                                 Login

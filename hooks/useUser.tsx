@@ -49,8 +49,7 @@ export const MyUserContextProvider = (props: Props) => {
                 }
 
                 setIsLoadingData(false);
-
-            })
+            });
         } else if (!user && !isLoadingUser && !isLoadingData) {
             setUserDetails(null);
         }

@@ -1,4 +1,3 @@
-
 const ServerPage = ({ params }: { params: { serverId: string } }) => {
     const { serverId } = params;
     return (
