@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import ModalProvider from '@/providers/ModalProvider'
 import UserProvider from '@/providers/UserProvider'
-import { ThemeProvider } from '@/components/theme-provider'
+import { ThemeProvider } from '@/providers/theme-provider'
 
 const sans = Open_Sans({ subsets: ['latin'] })
 
