@@ -10,7 +10,7 @@ import AuthButton from "../AuthButton";
 
 const Sidebar = async () => {
     const profile = await currentProfile();
-
+    if (!profile) return redirect("/");
 
     const servers = await db.server.findMany({
         where: {

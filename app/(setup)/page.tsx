@@ -2,7 +2,7 @@ import AuthButton from "@/components/AuthButton";
 import { InitialModal } from "@/components/modals/InitialModal";
 import { currentProfile } from "@/lib/currentProfile";
 import { db } from "@/lib/dbClient";
-import { redirect, useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 
 const SetupPage = async () => {
     const profile = await currentProfile();
