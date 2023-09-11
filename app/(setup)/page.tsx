@@ -5,7 +5,6 @@ import { db } from "@/lib/dbClient";
 import { redirect } from "next/navigation";
 
 const SetupPage = async () => {
-
     const profile = await currentProfile();
 
     const server = await db.server.findFirst({
@@ -23,9 +22,12 @@ const SetupPage = async () => {
         return redirect(`/servers/${server.id}`);
     }
 
+    if (!profile) {
+        return <AuthButton />
+    }
+
     return (
         <div>
-            <AuthButton />
             <InitialModal />
         </div>
     );
