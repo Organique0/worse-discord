@@ -8,4 +8,5 @@ hello, it's me again with another update. I have switched to Clerk for authentic
 
 This whole time, after trying everything possible, remaking the auth 2 times, the "bug" was that I had a css property on a sidebar set to hidden. 
 I don't know why would that only trigger on initial page load and dissapeared after reloading but it did.
-This is web development for you.
+
+update: The problem was my LastPass extension. After login in, the extension would shrink the screen to show a notification. That is why the sidebar would not show up.
