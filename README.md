@@ -6,7 +6,6 @@ It did not work no matter what. Hours wasted for nothing. Almost got it to work 
 
 hello, it's me again with another update. I have switched to Clerk for authentication but the refresh bug is still there. Send help please.
 
-This whole time, after trying everything possible, remaking the auth 2 times, the "bug" was that I had a css property on a sidebar set to hidden. 
-I don't know why would that only trigger on initial page load and dissapeared after reloading but it did.
-
-update: The problem was my LastPass extension. After login in, the extension would shrink the screen to show a notification. That is why the sidebar would not show up.
+This whole time, after trying everything possible, remaking the auth 2 times, the "bug" was the in the way my css would interact with the LastPass extension that I have.
+Sidebar was set to hidden on small screens, and the extension would shrink the screen on login to show a notification. 
+Because of that, on initial page load, the sidebar was set to hidden.
