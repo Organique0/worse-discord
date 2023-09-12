@@ -10,4 +10,5 @@ This whole time, after trying everything possible, remaking the auth 2 times, th
 Sidebar was set to hidden on small screens, and the extension would shrink the screen on login to show a notification. 
 Because of that, on initial page load, the sidebar was set to hidden.
 
+
 I don't know why I did not just inspect the page sooner to see that the sidebar was there the whole time but luckily I did after all.
