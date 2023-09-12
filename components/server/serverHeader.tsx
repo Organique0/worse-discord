@@ -4,6 +4,7 @@ import { Member, MemberRole, Profile, Server } from "@prisma/client"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { Button } from "../ui/button";
 import { ChevronDown, LogOut, PlusCircle, Settings, Trash, UserPlus, Users } from "lucide-react";
+import { useModal } from "@/hooks/useModalStore";
 
 interface serverHeaderProps {
     server: Server & { members: (Member & { profile: Profile })[] };
@@ -11,6 +12,7 @@ interface serverHeaderProps {
 }
 
 export const ServerHeader = ({ server, role }: serverHeaderProps) => {
+    const { onOpen } = useModal();
     const isAdmin = role === MemberRole.ADMIN;
     const isModerator = isAdmin || role === MemberRole.MODERATOR;
     return (
@@ -22,7 +24,7 @@ export const ServerHeader = ({ server, role }: serverHeaderProps) => {
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56 text-xs font-medium dark:text-neutral-400 space-y-[2px] text-black">
-                {isModerator && <DropdownMenuItem className="text-indigo-600 dark:text-indigo-400 py-2 text-sm cursor-pointer px-3 focus:text-indigo-600">Invite people<UserPlus className="h-4 w-4 ml-auto" /></DropdownMenuItem>}
+                {isModerator && <DropdownMenuItem onClick={() => onOpen("invite", { server })} className="text-indigo-600 dark:text-indigo-400 py-2 text-sm cursor-pointer px-3 focus:text-indigo-600">Invite people<UserPlus className="h-4 w-4 ml-auto" /></DropdownMenuItem>}
                 {isAdmin && <DropdownMenuItem className="py-2 text-sm cursor-pointer px-3">Server settings<Settings className="h-4 w-4 ml-auto" /></DropdownMenuItem>}
                 {isAdmin && <DropdownMenuItem className="py-2 text-sm cursor-pointer px-3">Manage members<Users className="h-4 w-4 ml-auto" /></DropdownMenuItem>}
                 {isModerator && <DropdownMenuItem className="py-2 text-sm cursor-pointer px-3">Create channel<PlusCircle className="h-4 w-4 ml-auto" /></DropdownMenuItem>}

@@ -5,6 +5,8 @@ import { Open_Sans } from 'next/font/google'
 import ModalProvider from '@/providers/ModalProvider'
 import { ThemeProvider } from '@/providers/theme-provider'
 import { ClerkProvider } from '@clerk/nextjs'
+import { dark } from '@clerk/themes';
+
 
 const sans = Open_Sans({ subsets: ['latin'] })
 export const metadata: Metadata = {
@@ -20,12 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={sans.className}>
-        <ClerkProvider>
-          <ThemeProvider attribute='class' defaultTheme='dark' enableSystem>
+        <ThemeProvider attribute='class' defaultTheme='dark' enableSystem>
+          <ClerkProvider appearance={{ baseTheme: dark }}>
             <ModalProvider />
             {children}
-          </ThemeProvider>
-        </ClerkProvider>
+          </ClerkProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
