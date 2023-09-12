@@ -1,6 +1,5 @@
 "use client";
 
-import AuthModal from "@/components/auth-form";
 import { CreateServerModal } from "@/components/modals/createServerModal";
 import { useEffect, useState } from "react";
 
@@ -18,7 +17,6 @@ const ModalProvider: React.FC = () => {
 
     return (
         <>
-            <AuthModal />
             <CreateServerModal />
         </>
     );

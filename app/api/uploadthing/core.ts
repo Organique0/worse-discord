@@ -1,11 +1,11 @@
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+
 import { createUploadthing, type FileRouter } from "uploadthing/next";
-import { currentProfile } from "@/lib/currentProfile";
+import { initialProfile } from "@/lib/initial-profile";
 import { db } from "@/lib/dbClient";
 const f = createUploadthing();
 
 const handleAuth = async () => {
-    const profile = await currentProfile();
+    const profile = await initialProfile();
     if (!profile) throw new Error("unauthenticated");
     return { userId: profile?.userId }
 }

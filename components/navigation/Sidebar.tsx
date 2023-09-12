@@ -1,4 +1,3 @@
-import { currentProfile } from "@/lib/currentProfile";
 import { db } from "@/lib/dbClient";
 import { redirect } from "next/navigation";
 import NavigationAction from "./NavigationAction";
@@ -6,11 +5,12 @@ import { Separator } from "../ui/separator";
 import { ScrollArea } from "../ui/scroll-area";
 import { NavigationItem } from "./NavigationItem";
 import { ModeToggle } from "../ModeToggle";
-import AuthButton from "../AuthButton";
+import { UserButton, auth } from "@clerk/nextjs";
+import { currentProfile } from "@/lib/current-profile"
 
 const Sidebar = async () => {
     const profile = await currentProfile();
-    if (!profile) return redirect("/");
+
 
     const servers = await db.server.findMany({
         where: {
@@ -22,7 +22,7 @@ const Sidebar = async () => {
         }
     })
     return (
-        <div className="flex flex-col items-center h-full space-y-4 text-primary w-full dark:bg-[#1E1F22]">
+        <div className="flex flex-col items-center h-full space-y-4 text-primary w-full dark:bg-[#1E1F22] z-20">
             <NavigationAction />
             <Separator className="h-[2px] bg-zinc-300 dark:bg-zick-700 mx-auto w-10 rounded-md" />
             <ScrollArea className="flex-1 w-full">
@@ -34,7 +34,7 @@ const Sidebar = async () => {
             </ScrollArea>
             <div className="mt-auto flex items-center flex-col gap-y-4 pb-3">
                 <ModeToggle />
-                <AuthButton />
+                <UserButton afterSignOutUrl="/" />
             </div>
         </div>
     );

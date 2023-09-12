@@ -1,14 +1,11 @@
-import AuthButton from "@/components/AuthButton";
 import { InitialModal } from "@/components/modals/InitialModal";
-import { currentProfile } from "@/lib/currentProfile";
 import { db } from "@/lib/dbClient";
 import { redirect } from "next/navigation";
+import { initialProfile } from "@/lib/initial-profile";
 
 const SetupPage = async () => {
-    const profile = await currentProfile();
-    if (!profile) {
-        return <AuthButton />
-    }
+    const profile = await initialProfile();
+
     const server = await db.server.findFirst({
         where: {
             members: {
