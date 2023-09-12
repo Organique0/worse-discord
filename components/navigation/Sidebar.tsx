@@ -16,7 +16,7 @@ const Sidebar = async () => {
         where: {
             members: {
                 some: {
-                    profileId: profile?.userId
+                    profileId: profile?.id
                 }
             }
         }

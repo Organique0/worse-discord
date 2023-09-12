@@ -2,6 +2,7 @@ import { InitialModal } from "@/components/modals/InitialModal";
 import { db } from "@/lib/dbClient";
 import { redirect } from "next/navigation";
 import { initialProfile } from "@/lib/initial-profile";
+import { redirectToSignIn } from "@clerk/nextjs";
 
 const SetupPage = async () => {
     const profile = await initialProfile();
@@ -11,7 +12,7 @@ const SetupPage = async () => {
             members: {
                 some: {
                     //where profileId is equal to the current user id
-                    profileId: profile?.userId
+                    profileId: profile.id
                 }
             }
         }
