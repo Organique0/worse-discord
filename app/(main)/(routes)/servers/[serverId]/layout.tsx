@@ -4,10 +4,12 @@ import { redirectToSignIn } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import React from "react";
 import { ServerSidebar } from "@/components/server/serverSidebar";
+import { env } from "process";
 
 const ServerLayout = async ({ children, params }: { children: React.ReactNode, params: { serverId: string } }) => {
     const profile = await currentProfile();
-    if (!profile) return redirectToSignIn();
+    if (!profile) return redirectToSignIn({ returnBackUrl: env.SERVER_URL + '/sign-in' });
+
 
     const server = db.server.findUnique({
         where: {

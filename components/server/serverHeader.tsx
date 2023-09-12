@@ -26,7 +26,7 @@ export const ServerHeader = ({ server, role }: serverHeaderProps) => {
             <DropdownMenuContent className="w-56 text-xs font-medium dark:text-neutral-400 space-y-[2px] text-black">
                 {isModerator && <DropdownMenuItem onClick={() => onOpen("invite", { server })} className="text-indigo-600 dark:text-indigo-400 py-2 text-sm cursor-pointer px-3 focus:text-indigo-600">Invite people<UserPlus className="h-4 w-4 ml-auto" /></DropdownMenuItem>}
                 {isAdmin && <DropdownMenuItem className="py-2 text-sm cursor-pointer px-3" onClick={() => onOpen("editServer", { server })}>Server settings<Settings className="h-4 w-4 ml-auto" /></DropdownMenuItem>}
-                {isAdmin && <DropdownMenuItem className="py-2 text-sm cursor-pointer px-3">Manage members<Users className="h-4 w-4 ml-auto" /></DropdownMenuItem>}
+                {isAdmin && <DropdownMenuItem className="py-2 text-sm cursor-pointer px-3" onClick={() => onOpen("members", { server })}>Manage members<Users className="h-4 w-4 ml-auto" /></DropdownMenuItem>}
                 {isModerator && <DropdownMenuItem className="py-2 text-sm cursor-pointer px-3">Create channel<PlusCircle className="h-4 w-4 ml-auto" /></DropdownMenuItem>}
                 {isModerator && <DropdownMenuSeparator />}
                 {isAdmin && <DropdownMenuItem className="py-2 text-sm cursor-pointer px-3 text-rose-600 dark:text-rose-400 focus:text-rose-600">Delete server<Trash className="h-4 w-4 ml-auto" /></DropdownMenuItem>}

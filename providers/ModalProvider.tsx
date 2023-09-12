@@ -3,6 +3,7 @@
 import { CreateServerModal } from "@/components/modals/createServerModal";
 import { EditServerModal } from "@/components/modals/editServerModal";
 import { InviteModal } from "@/components/modals/inviteModal";
+import { MembersModal } from "@/components/modals/membersModal";
 import { useEffect, useState } from "react";
 
 
@@ -22,6 +23,7 @@ const ModalProvider: React.FC = () => {
             <CreateServerModal />
             <InviteModal />
             <EditServerModal />
+            <MembersModal />
         </>
     );
 }
