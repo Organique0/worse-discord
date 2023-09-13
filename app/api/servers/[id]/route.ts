@@ -24,3 +24,23 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
         return new NextResponse("internal error", { status: 500 })
     }
 }
+
+export async function DELETE(req: Request, { params }: { params: { id: string } }) {
+    try {
+        const profile = await currentProfile();
+        if (!profile) return new NextResponse("unauthorized", { status: 401 });
+        console.log(params.id, profile.id)
+
+        const server = await db.server.delete({
+            where: {
+                id: params.id,
+                profileId: profile.id,
+
+            }
+        })
+        return NextResponse.json(server);
+    } catch (error) {
+        console.log(error);
+        return new NextResponse("internal error", { status: 500 })
+    }
+}

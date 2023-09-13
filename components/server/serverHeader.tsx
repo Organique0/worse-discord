@@ -18,7 +18,7 @@ export const ServerHeader = ({ server, role }: serverHeaderProps) => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger className="focus:outline-none" asChild>
-                <Button className="dark:text-neutral-200 w-full text-md font-semibold px-3 h-12 bg-zinc-700 dark:border-neutral-800 border-b-2 focus-visible:ring-0 dark:bg-zinc-700/50 transition flex justify-between">
+                <Button variant="primary" className="dark:text-white w-full text-md font-semibold px-3 h-12 dark:border-neutral-800 border-b-2 focus-visible:ring-0 dark:bg-indigo-500/70 dark:hover:bg-indigo-500/90 transition flex justify-between">
                     {server.name}
                     <ChevronDown />
                 </Button>
@@ -27,10 +27,10 @@ export const ServerHeader = ({ server, role }: serverHeaderProps) => {
                 {isModerator && <DropdownMenuItem onClick={() => onOpen("invite", { server })} className="text-indigo-600 dark:text-indigo-400 py-2 text-sm cursor-pointer px-3 focus:text-indigo-600">Invite people<UserPlus className="h-4 w-4 ml-auto" /></DropdownMenuItem>}
                 {isAdmin && <DropdownMenuItem className="py-2 text-sm cursor-pointer px-3" onClick={() => onOpen("editServer", { server })}>Server settings<Settings className="h-4 w-4 ml-auto" /></DropdownMenuItem>}
                 {isAdmin && <DropdownMenuItem className="py-2 text-sm cursor-pointer px-3" onClick={() => onOpen("members", { server })}>Manage members<Users className="h-4 w-4 ml-auto" /></DropdownMenuItem>}
-                {isModerator && <DropdownMenuItem className="py-2 text-sm cursor-pointer px-3">Create channel<PlusCircle className="h-4 w-4 ml-auto" /></DropdownMenuItem>}
+                {isModerator && <DropdownMenuItem className="py-2 text-sm cursor-pointer px-3" onClick={() => onOpen("createChannel", { server })}>Create channel<PlusCircle className="h-4 w-4 ml-auto" /></DropdownMenuItem>}
                 {isModerator && <DropdownMenuSeparator />}
-                {isAdmin && <DropdownMenuItem className="py-2 text-sm cursor-pointer px-3 text-rose-600 dark:text-rose-400 focus:text-rose-600">Delete server<Trash className="h-4 w-4 ml-auto" /></DropdownMenuItem>}
-                {!isAdmin && <DropdownMenuItem className="py-2 text-sm cursor-pointer px-3 text-rose-600 dark:text-rose-400 focus:text-rose-600">Leave server<LogOut className="h-4 w-4 ml-auto" /></DropdownMenuItem>}
+                {isAdmin && <DropdownMenuItem className="py-2 text-sm cursor-pointer px-3 text-rose-600 dark:text-rose-400 focus:text-rose-600" onClick={() => onOpen("deleteServer", { server })}>Delete server<Trash className="h-4 w-4 ml-auto" /></DropdownMenuItem>}
+                {!isAdmin && <DropdownMenuItem className="py-2 text-sm cursor-pointer px-3 text-rose-600 dark:text-rose-400 focus:text-rose-600" onClick={() => onOpen("leaveServer", { server })}>Leave server<LogOut className="h-4 w-4 ml-auto" /></DropdownMenuItem>}
             </DropdownMenuContent>
         </DropdownMenu>
     )

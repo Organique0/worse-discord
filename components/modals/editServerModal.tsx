@@ -76,7 +76,7 @@ export const EditServerModal = () => {
 
     return (
         <Dialog open={isModalOpen} onOpenChange={handleClose}>
-            <DialogContent className="bg-white text-black p-0 overflow-hidden">
+            <DialogContent className="bg-white text-black p-0 overflow-hidden dark:bg-[#1E1F22] dark:text-zinc-200">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className="font-bold text-center text-2xl">Customize your server</DialogTitle>
                     <DialogDescription className="text-center text-zinc-400">
@@ -97,13 +97,13 @@ export const EditServerModal = () => {
                             </div>
                             <FormField control={form.control} name="name" render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel className="text-xs text-zinc-500 uppercase dark:text-secondary/70 font-bold">
+                                    <FormLabel className="text-xs text-zinc-500 uppercase dark:text-secondary/70 font-bold dark:text-zinc-100">
                                         server name
                                     </FormLabel>
                                     <FormControl>
                                         <Input
                                             disabled={isLoading}
-                                            className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-ofset-0"
+                                            className="bg-zinc-300/50 focus-visible:ring-0 text-black focus-visible:ring-offset-0 border-0 dark:bg-zinc-300"
                                             placeholder="enter serve name"
                                             {...field}
                                         />
@@ -112,7 +112,7 @@ export const EditServerModal = () => {
                                 </FormItem>
                             )} />
                         </div>
-                        <DialogFooter className="bg-gray-100 px-6 py-4">
+                        <DialogFooter className="bg-gray-100 px-6 py-4 dark:bg-[#1E1F22]">
                             <Button disabled={isLoading} variant={"primary"}>Save</Button>
                         </DialogFooter>
                     </form>
