@@ -22,7 +22,7 @@ export const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
         )
     }
     return (
-        <UploadDropzone appearance={{ label: "text-indigo-500 hover:text-indigo-500/90", container: "border-none" }} endpoint={endpoint} onClientUploadComplete={(res) => {
+        <UploadDropzone appearance={{ label: "text-indigo-500 hover:text-indigo-500/90", button: "bg-indigo-500/90", container: "border-2 border-indigo-800/60 rouded-md" }} endpoint={endpoint} onClientUploadComplete={(res) => {
             onChange(res?.[0].url);
         }}
             onUploadError={(error: Error) => {

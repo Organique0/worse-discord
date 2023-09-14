@@ -79,7 +79,7 @@ export const CreateServerModal = () => {
                         <div className="space-y-8 px-6">
                             <div className="flex items-center justify-center text-center">
                                 <FormField control={form.control} name="imageUrl" render={({ field }) => (
-                                    <FormItem className="border-dashed border-2 border-zinc-300/60">
+                                    <FormItem >
                                         <FormControl>
                                             <FileUpload endpoint="serverImage" value={field.value} onChange={field.onChange} />
                                         </FormControl>
