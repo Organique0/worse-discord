@@ -2,7 +2,9 @@
 
 import { CreateChannelModal } from "@/components/modals/createChannelModal";
 import { CreateServerModal } from "@/components/modals/createServerModal";
+import { DeleteChannelModal } from "@/components/modals/deleteChannelModal";
 import { DeleteServerModal } from "@/components/modals/deleteServerModal";
+import { EditChannelModal } from "@/components/modals/editChannelModal";
 import { EditServerModal } from "@/components/modals/editServerModal";
 import { InviteModal } from "@/components/modals/inviteModal";
 import { LeaveServerModal } from "@/components/modals/leaveServerModal";
@@ -30,6 +32,8 @@ const ModalProvider: React.FC = () => {
             <CreateChannelModal />
             <LeaveServerModal />
             <DeleteServerModal />
+            <DeleteChannelModal />
+            <EditChannelModal />
         </>
     );
 }
