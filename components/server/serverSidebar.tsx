@@ -30,6 +30,7 @@ const roleIconMap = {
 export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
     const profile = await currentProfile();
     if (!profile) return redirect("/");
+    if (!serverId) return null;
 
     const server = await db.server.findUnique({
         where: {

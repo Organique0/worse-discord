@@ -23,8 +23,12 @@ export const ServerMember = ({ member, server }: ServerMemberProps) => {
 
     const icon = roleIconMap[member.role];
 
+    const onClick = () => {
+        router.push(`/servers/${params.serverId}/conversations/${member.id})`);
+    }
+
     return (
-        <button className={cn(`
+        <button onClick={onClick} className={cn(`
         group
         px-2
         py-2
@@ -49,7 +53,7 @@ export const ServerMember = ({ member, server }: ServerMemberProps) => {
             dark:group-hover:text-zinc-300
             transition
             `,
-                params?.channelId === member.id && "text-primary dark:text-zinc-200 dark:group-hover:text-white"
+                params?.memberId === member.id && "text-primary dark:text-zinc-200 dark:group-hover:text-white"
             )}>
                 {member.profile.name}
             </p>
