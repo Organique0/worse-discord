@@ -1,5 +1,6 @@
 "use client";
 
+import { MessageFileModal } from "@/components/modals/MessageFileModal";
 import { CreateChannelModal } from "@/components/modals/createChannelModal";
 import { CreateServerModal } from "@/components/modals/createServerModal";
 import { DeleteChannelModal } from "@/components/modals/deleteChannelModal";
@@ -34,6 +35,7 @@ const ModalProvider: React.FC = () => {
             <DeleteServerModal />
             <DeleteChannelModal />
             <EditChannelModal />
+            <MessageFileModal />
         </>
     );
 }

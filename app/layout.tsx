@@ -6,6 +6,7 @@ import ModalProvider from '@/providers/ModalProvider'
 import { ThemeProvider } from '@/providers/theme-provider'
 import { ClerkProvider } from '@clerk/nextjs'
 import { dark } from '@clerk/themes';
+import { SocketProvider } from '@/providers/SocketProvider'
 
 
 const sans = Open_Sans({ subsets: ['latin'] })
@@ -23,10 +24,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={sans.className}>
         <ThemeProvider attribute='class' defaultTheme='dark' enableSystem>
-          <ClerkProvider appearance={{ baseTheme: dark }}>
-            <ModalProvider />
-            {children}
-          </ClerkProvider>
+          <SocketProvider>
+            <ClerkProvider appearance={{ baseTheme: dark }}>
+              <ModalProvider />
+              {children}
+            </ClerkProvider>
+          </SocketProvider>
         </ThemeProvider>
       </body>
     </html>
