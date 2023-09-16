@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { NextApiResponseServerIo } from "./io";
+import { NextApiResponseServerIo } from "../io";
 import { currentProfilePages } from "@/lib/current-profile-pages";
 import { db } from "@/lib/dbClient";
 
@@ -74,6 +74,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponseS
         });
 
         const channelKey = `chat:${channelId}:messages`;
+
         res?.socket?.server?.io?.emit(channelKey, message);
 
         return res.status(200).json(message);

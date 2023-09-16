@@ -7,6 +7,7 @@ import { ThemeProvider } from '@/providers/theme-provider'
 import { ClerkProvider } from '@clerk/nextjs'
 import { dark } from '@clerk/themes';
 import { SocketProvider } from '@/providers/SocketProvider'
+import { QueryProvider } from '@/providers/QueryProvider'
 
 
 const sans = Open_Sans({ subsets: ['latin'] })
@@ -27,7 +28,9 @@ export default function RootLayout({
           <SocketProvider>
             <ClerkProvider appearance={{ baseTheme: dark }}>
               <ModalProvider />
-              {children}
+              <QueryProvider>
+                {children}
+              </QueryProvider>
             </ClerkProvider>
           </SocketProvider>
         </ThemeProvider>

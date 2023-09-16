@@ -4,6 +4,7 @@ import { MessageFileModal } from "@/components/modals/MessageFileModal";
 import { CreateChannelModal } from "@/components/modals/createChannelModal";
 import { CreateServerModal } from "@/components/modals/createServerModal";
 import { DeleteChannelModal } from "@/components/modals/deleteChannelModal";
+import { DeleteMessageModal } from "@/components/modals/deleteMessageModal";
 import { DeleteServerModal } from "@/components/modals/deleteServerModal";
 import { EditChannelModal } from "@/components/modals/editChannelModal";
 import { EditServerModal } from "@/components/modals/editServerModal";
@@ -36,6 +37,7 @@ const ModalProvider: React.FC = () => {
             <DeleteChannelModal />
             <EditChannelModal />
             <MessageFileModal />
+            <DeleteMessageModal />
         </>
     );
 }
