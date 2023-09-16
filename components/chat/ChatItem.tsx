@@ -21,6 +21,7 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useModal } from "@/hooks/useModalStore";
+import { useRouter, useParams } from "next/navigation";
 
 interface ClientItemProps {
     id: string;
@@ -61,6 +62,8 @@ const ChatItem = ({
 }: ClientItemProps) => {
     const [isEditing, setIsEditing] = useState(false);
     const { onOpen } = useModal();
+    const router = useRouter();
+    const params = useParams();
 
     const form = useForm<zod.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -104,6 +107,14 @@ const ChatItem = ({
         }
     }
 
+    const onMemberClick = () => {
+        if (member.id === currentMember.id) {
+            return;
+        }
+
+        router.push(`/servers/${params?.serverId}/convesation/${member.id}`);
+    }
+
 
     const fileType = fileUrl?.split(".").pop();
 
@@ -118,13 +129,13 @@ const ChatItem = ({
     return (
         <div className="relative flex items-center hover:bg-black/5 p-4 w-full transition group">
             <div className="group flex gap-x-2 items-start w-full">
-                <div className="cursor-pointer hover:drop-shadow-md transition flex">
+                <div className="cursor-pointer hover:drop-shadow-md transition flex" onClick={onMemberClick}>
                     <UserAvatar src={member.profile.imageUrl} />
                 </div>
                 <div className="flex flex-col w-full">
                     <div className="flex items-center gap-x-2">
                         <div className="flex items-center">
-                            <p className="hover:underline cursor-pointer font-semibold text-sm">{member.profile.name}</p>
+                            <p className="hover:underline cursor-pointer font-semibold text-sm" onClick={onMemberClick}>{member.profile.name}</p>
                             <ActionToolkit label={member.role}>
                                 {roleIconMap[member.role]}
                             </ActionToolkit>
