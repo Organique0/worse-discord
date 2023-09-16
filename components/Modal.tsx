@@ -8,10 +8,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import { XIcon } from "lucide-react";
-import { Button } from "./ui/button";
-import { Label } from "./ui/label";
-import { Input } from "./ui/input"
+
 
 interface ModalProps {
     isOpen: boolean;

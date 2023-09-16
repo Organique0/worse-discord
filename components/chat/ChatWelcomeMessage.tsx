@@ -15,7 +15,7 @@ const ChatWelcomeMessage = ({ type, name }: ChatWelcomeMessageProps) => {
                 </div>
             )}
             <p className='text-xl md:text-3xl font-bold'>
-                {type === "channel" ? "Welcome to #" : ""}
+                {type === "channel" ? "Welcome to #" : `${name}`}
             </p>
             <p className='dark:text-zinc-400 text-sm text-zinc-600'>
                 {type === "channel" ? `This is the start of the #${name} channel` : `This is the start of your conversation with ${name}`}
