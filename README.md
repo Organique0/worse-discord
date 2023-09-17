@@ -1,4 +1,7 @@
 Next.js 13, React, Socket.io, Prisma, Tailwind, Supabase, UploadThing, Clerk
+*****************
+Hosted on Railway.app
+*****************
 
 On a second brach there is my attempt of using Supabase for authentication.
 
