@@ -39,6 +39,8 @@ body,
     --ring: 240 10% 3.9%;
  
     --radius: 0.5rem;
+
+    --danger: #de4040;
   }
  
   .dark {
@@ -79,4 +81,10 @@ body,
   body {
     @apply bg-background text-foreground;
   }
+
 }
+
+.lk-disconnect-button {
+  background-color: var(--danger) !important;
+}
+
