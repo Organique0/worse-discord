@@ -58,5 +58,5 @@ jobs:
         with:
           app-name: 'worse-discord'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D67F6A7A98B746C7815A7DD72AD8AAA9 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B5C91365ACF542BBAE9722086A965EB8 }}
           package: .
