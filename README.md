@@ -1,8 +1,6 @@
 Next.js 13, React, Socket.io, Prisma, Tailwind, Supabase, UploadThing, Clerk
 *****************
-
-"Hosted on Railway.app
-
+Hosted on Railway.app
 Update:
 
 Railway wanted $5.
