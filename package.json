@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p $PORT",
+    "start": "node_modules/next/dist/bin/next start -p $PORT",
     "lint": "next lint",
     "postinstall": "next build"
 
   },
+    "engines":{"node":"18.17.1"},
   "dependencies": {
     "@clerk/nextjs": "^4.23.5",
     "@clerk/themes": "^1.7.5",
