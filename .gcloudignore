@@ -1,0 +1,8 @@
+# Node.js-specific ignores
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build or output directories
+dist/
+.next/
