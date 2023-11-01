@@ -1,6 +1,23 @@
 Next.js 13, React, Socket.io, Prisma, Tailwind, Supabase, UploadThing, Clerk
 *****************
-Hosted on Railway.app
+"Hosted on Railway.app
+Update:
+Railway wanted $5.
+"No, thank you," I replied.
+I then turned to my friend Azure.
+"You will host my app for free, right?"
+"No," Azure replied. "Your app is too large."
+I didn't believe her, so I spent hours trying different approaches to make it work.
+I discovered its competitor, AWS, and decided to give them a shot.
+Things didn't go well; the errors kept piling up, and I felt overwhelmed.
+Then, I saw a helping hand - it pulled me out. It was the almighty Google himself.
+He said to me, "We are better than them. Try our amazing App Engine."
+So, I downloaded their CLI, logged in, configured everything, and deployed.
+I couldn't believe it. It worked on the first try.
+"Okay," I thought, but will the site load?
+I clicked on the link they provided.
+The site loaded.
+It was the most beautiful thing I had ever seen.
 *****************
 
 On a second brach there is my attempt of using Supabase for authentication.
