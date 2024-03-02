@@ -1,5 +1,8 @@
 Next.js 13, React, Socket.io, Prisma, Tailwind, Supabase, UploadThing, Clerk
+
 Link: https://www.youtube.com/watch?v=ZbX4Ok9YX94
+
+An amazing image generator: https://dummyimage.com/
 *****************
 Hosted on Railway.app
 
