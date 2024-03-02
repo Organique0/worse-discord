@@ -1,4 +1,3 @@
-import { InitialModal } from "@/components/modals/InitialModal";
 import { db } from "@/lib/dbClient";
 import { redirect } from "next/navigation";
 import { initialProfile } from "@/lib/initial-profile";
@@ -24,11 +23,7 @@ const SetupPage = async () => {
         redirect(`/servers/`);
     }
 
-    return (
-        <div>
-            <InitialModal />
-        </div>
-    );
+
 }
 
 export default SetupPage;

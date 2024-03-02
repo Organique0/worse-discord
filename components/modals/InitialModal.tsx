@@ -25,17 +25,26 @@ import { useEffect, useState } from "react";
 import { FileUpload } from "../file-upload";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useUser } from "@clerk/clerk-react";
+
 const formSchema = z.object({
     name: z.string().min(1, { message: "Server name is required" }),
     imageUrl: z.string().min(1, { message: "Server image is required" }),
 });
+
 export const InitialModal = () => {
     const [isMouted, setIsMounted] = useState(false);
+    const { isSignedIn, user, isLoaded } = useUser();
+    const [defaultImgText, setDefaultImgText] = useState("xy");
     const router = useRouter();
+
 
     useEffect(() => {
         setIsMounted(true);
-    }, []);
+        if (isLoaded && isSignedIn && user.firstName && user.lastName) {
+            setDefaultImgText(user.firstName[0] + user.lastName[0]);
+        }
+    }, [isLoaded, user, isSignedIn]);
 
     const form = useForm({
         resolver: zodResolver(formSchema),
@@ -44,6 +53,10 @@ export const InitialModal = () => {
             imageUrl: "",
         }
     });
+
+    useEffect(() => {
+        form.setValue("imageUrl", "https://dummyimage.com/900x900/099bab/fff&text=" + defaultImgText);
+    }, [defaultImgText, form]);
 
     const isLoading = form.formState.isSubmitting;
 
@@ -64,7 +77,7 @@ export const InitialModal = () => {
         <Dialog open>
             <DialogContent className="bg-white text-black p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6">
-                    <DialogTitle className="font-bold text-center text-2xl">Customize your server</DialogTitle>
+                    <DialogTitle className="font-bold text-center text-2xl">Create your first server</DialogTitle>
                     <DialogDescription className="text-center text-zinc-400">
                         Give your server a name and an image
                     </DialogDescription>
