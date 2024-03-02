@@ -24,6 +24,8 @@ My last hope was Google Cloud.
 
 This is where it is hosted now.
 
+Database is currently hosted on Vercel
+
 *****************
 
 On a second brach there is my attempt of using Supabase for authentication.
